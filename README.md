@@ -10,4 +10,5 @@
     - REQUIRED: dependecy (PostgreSQL Driver)
     - REQUIRED: dependecy (JPA Repository)
     - REQUIRED: dependency (Spring Data JPA )
+    - REQUIRED: dependency (springdoc-openapi-starter-webmvc-ui)
 	- OPTIONAL: dependency(lombook)
