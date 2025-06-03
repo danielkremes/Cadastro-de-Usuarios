@@ -18,6 +18,10 @@ public class UserService {
         return userServiceRepository.findAll();
     }
 
+    public Optional<Users> listById(Long id) {
+        return userServiceRepository.findById(id);
+    }
+
     public Users saveUser(Users users) {
         return userServiceRepository.save(users);
     }
@@ -42,4 +46,5 @@ public class UserService {
     public void deleteUser(Long id) {
         userServiceRepository.deleteById(id);
     }
+
 }

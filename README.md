@@ -1,6 +1,5 @@
 # User service
-- New link in development
-- [Old link project](https://youtu.be/SwSkE3M9-kI)
+- (https://youtu.be/ngYZnZbxsd4)
 
 # Description
 	- A database that stores user records and allow user control
