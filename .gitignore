@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+
+/src/main/java/drk/service/user/user_service/StarterApp.java

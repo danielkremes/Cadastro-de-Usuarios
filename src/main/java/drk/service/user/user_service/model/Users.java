@@ -1,6 +1,7 @@
 package drk.service.user.user_service.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,7 +32,12 @@ public class Users {
     @Column(length = 3, nullable = false)
     private int age;
 
-    public Users(String jose, int i, String mail, String admin, String number) {
+    public Users(String name, String email, String username, String password, int age) {
+        this.name = name;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.age = age;
     }
 
     @Override
