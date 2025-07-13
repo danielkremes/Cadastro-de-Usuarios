@@ -2,7 +2,6 @@ package drk.service.user.user_service.service;
 
 import drk.service.user.user_service.model.Users;
 import drk.service.user.user_service.repository.UserServiceRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,8 +10,11 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserServiceRepository userServiceRepository;
+    private final UserServiceRepository userServiceRepository;
+
+    public UserService(UserServiceRepository userServiceRepository) {
+        this.userServiceRepository = userServiceRepository;
+    }
 
     public List<Users> ListAllUser() {
         return userServiceRepository.findAll();
@@ -37,7 +39,7 @@ public class UserService {
             users.setEmail(newUser.getEmail());
             users.setUsername(newUser.getUsername());
             users.setPassword(newUser.getPassword());
-           return userServiceRepository.save(users);
+            return userServiceRepository.save(users);
         } else {
             throw new RuntimeException("User not found with id " + id);
         }
