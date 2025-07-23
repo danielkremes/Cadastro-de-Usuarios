@@ -1,31 +1,37 @@
 package drk.service.user.user_service.service;
 
+import drk.service.user.user_service.dto.ListUsersDTO;
+import drk.service.user.user_service.dto.UsersDTO;
+import drk.service.user.user_service.mapper.UsersMapper;
 import drk.service.user.user_service.model.Users;
 import drk.service.user.user_service.repository.UserServiceRepository;
+import lombok.Builder;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
     private final UserServiceRepository userServiceRepository;
+    private final UsersMapper usersMapper;
 
-    public UserService(UserServiceRepository userServiceRepository) {
-        this.userServiceRepository = userServiceRepository;
-    }
-
-    public List<Users> ListAllUser() {
-        return userServiceRepository.findAll();
+    public List<ListUsersDTO> listUsers() {
+        List<Users> users = userServiceRepository.findAll();
+        return usersMapper.listUsersFromEntityList(users);
     }
 
     public Optional<Users> listById(Long id) {
         return userServiceRepository.findById(id);
     }
 
-    public Users saveUser(Users users) {
-        return userServiceRepository.save(users);
+    public UsersDTO saveUser(UsersDTO usersDTO) {
+        Users users = usersMapper.entityForDTO(usersDTO);
+        userServiceRepository.save(users);
+        return usersMapper.dtoForEntity(users);
     }
 
     public Users updateUser(Long id, Users newUser) {
