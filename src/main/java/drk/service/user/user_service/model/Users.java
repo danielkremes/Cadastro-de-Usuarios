@@ -2,10 +2,7 @@ package drk.service.user.user_service.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Objects;
 
@@ -15,6 +12,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_users")
+@Builder
 public class Users {
 
     @Id
